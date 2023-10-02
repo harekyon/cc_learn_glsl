@@ -4,6 +4,10 @@ out vec4 fragColor;
 uniform vec2 u_resolution;
 uniform float u_time;
 
+//================================
+//038 符号なし整数の可視化
+//================================
+
 void main(){
     vec2 pos = gl_FragCoord.xy/u_resolution.xy; //フラグメント座標範囲の正規化
     pos *= vec2(32.0,9.0); //座標のスケール
@@ -16,7 +20,7 @@ void main(){
         0xffffffffu + uint(u_time),//a[5]オーバーフロー
         floatBitsToUint(floor(u_time)),//a[6]浮動小数点数のビット列を符号なし
         floatBitsToUint(-floor(u_time)),//a[7]
-        floatBitsToUint(11.5625)//a[8]
+        floatBitsToUint(30.5625)//a[8]
     );
     if(fract(pos.x)<0.1){
         if(floor(pos.x)==1.0){
